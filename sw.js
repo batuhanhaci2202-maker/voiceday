@@ -1,4 +1,4 @@
-const CACHE = 'voiceday-v9';
+const CACHE = 'voiceday-v10';
 const PRECACHE = [
   '/voiceday/',
   '/voiceday/index.html',
