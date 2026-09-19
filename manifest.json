@@ -9,16 +9,7 @@
   "theme_color": "#17181A",
   "background_color": "#17181A",
   "icons": [
-    {
-      "src": "/voiceday/assets/favicon.png",
-      "sizes": "48x48",
-      "type": "image/png"
-    },
-    {
-      "src": "/voiceday/assets/icon.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    { "src": "/voiceday/assets/favicon.png", "sizes": "48x48", "type": "image/png" },
+    { "src": "/voiceday/assets/icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ]
 }
