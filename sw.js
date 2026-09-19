@@ -1,9 +1,9 @@
-const CACHE = 'voiceday-v8';
+const CACHE = 'voiceday-v9';
 const PRECACHE = [
   '/voiceday/',
   '/voiceday/index.html',
   '/voiceday/manifest.json',
-  '/voiceday/_expo/static/js/web/entry-434e54129ea0bdd7010e019709060de0.js',
+  '/voiceday/_expo/static/js/web/entry-117b5f13fe35b2a9133ea36195c25a92.js',
 ];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(PRECACHE)).then(() => self.skipWaiting()));
