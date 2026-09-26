@@ -1,25 +1,25 @@
-const CACHE = 'voiceday-v10';
-const PRECACHE = [
-  '/voiceday/',
-  '/voiceday/index.html',
-  '/voiceday/manifest.json',
-  '/voiceday/_expo/static/js/web/entry-117b5f13fe35b2a9133ea36195c25a92.js',
-];
-self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(PRECACHE)).then(() => self.skipWaiting()));
-});
+// VoiceDay Service Worker v11 — network-first, damit neue Versionen sofort ankommen
+const CACHE = 'voiceday-v11';
+self.addEventListener('install', e => { self.skipWaiting(); });
 self.addEventListener('activate', e => {
-  e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim()));
+  e.waitUntil(
+    caches.keys()
+      .then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k))))
+      .then(() => self.clients.claim())
+  );
 });
 self.addEventListener('fetch', e => {
-  if (e.request.method !== 'GET') return;
+  const req = e.request;
+  if (req.method !== 'GET' || new URL(req.url).origin !== self.location.origin) return;
   e.respondWith(
-    caches.match(e.request).then(r => r || fetch(e.request).then(resp => {
+    fetch(req).then(resp => {
       if (resp.ok && resp.type === 'basic') {
         const clone = resp.clone();
-        caches.open(CACHE).then(c => c.put(e.request, clone));
+        caches.open(CACHE).then(c => c.put(req, clone));
       }
       return resp;
-    }).catch(() => e.request.mode === 'navigate' ? caches.match('/voiceday/index.html') : Response.error()))
+    }).catch(() =>
+      caches.match(req).then(r => r || (req.mode === 'navigate' ? caches.match('/voiceday/') : Response.error()))
+    )
   );
 });

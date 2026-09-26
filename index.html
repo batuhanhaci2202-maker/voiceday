@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head><base href="/voiceday/"><link rel="manifest" href="/voiceday/manifest.json"><meta name="theme-color" content="#6C5CE7"><link rel="apple-touch-icon" href="/voiceday/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta charset="utf-8" />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -33,5 +33,6 @@
     <!-- The root element for your Expo app. -->
     <div id="root"></div>
   <script src="/voiceday/_expo/static/js/web/entry-452bbe457e8a586cab6e6c038dfff500.js" defer></script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/voiceday/sw.js',{scope:'/voiceday/'}).then(function(r){r.update();});var reloaded=false;navigator.serviceWorker.addEventListener('controllerchange',function(){if(reloaded)return;reloaded=true;window.location.reload();});});}</script>
 </body>
 </html>
