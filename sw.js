@@ -1,5 +1,5 @@
 // VoiceDay Service Worker v17 — network-first, damit neue Versionen sofort ankommen
-const CACHE = 'voiceday-v28';
+const CACHE = 'voiceday-v29';
 self.addEventListener('install', e => { self.skipWaiting(); });
 self.addEventListener('activate', e => {
   e.waitUntil(
